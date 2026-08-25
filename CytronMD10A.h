@@ -1,4 +1,7 @@
+#pragma once
 
+#include <Arduino.h>
+#include <math.h>
 
 
 void Cytron_init(int DIR, int PWM);

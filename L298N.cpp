@@ -10,12 +10,22 @@ void L298N_drive(int IN1, int IN2, int ENA, int speed_in_pwm){
   if(speed_in_pwm > 0){ //positive speed means moving forward
     digitalWrite(IN1, HIGH);
     digitalWrite(IN2, LOW);
-    analogWrite(ENA, abs(speed_in_pwm));
+    if(speed_in_pwm > 255){
+      analogWrite(ENA,255);
+    }
+    else{
+      analogWrite(ENA, abs(speed_in_pwm));
+    }
  }
  else if(speed_in_pwm < 0){ //negative speed means moving backward
     digitalWrite(IN1, LOW);
     digitalWrite(IN2, HIGH);
-    analogWrite(ENA, abs(speed_in_pwm));
+    if(speed_in_pwm < -255){
+      analogWrite(ENA,255);
+    }
+    else{
+      analogWrite(ENA, abs(speed_in_pwm));
+    }
  }
  else{         //zero speed means no movement
     digitalWrite(IN1, LOW);
