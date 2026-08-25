@@ -1,5 +1,12 @@
+#include "L298N.h"
+#include "CytronMD10A.h"
+#include "BTS7960.h"
+
+
 void setup() {
-  // put your setup code here, to run once:
+  L298N_init(int IN1, int IN2, int ENA);
+  Cytron_init(int DIR, int PWM);
+  BTS_init(int RPWM, int LPWM);
 
 }
 
